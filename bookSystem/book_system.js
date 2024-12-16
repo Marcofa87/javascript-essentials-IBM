@@ -21,6 +21,23 @@ function addBook() {
 }
 
 function showbooks() {
+    generateBooksHtmlTemplate()
+}
+
+ function deleteBook(index) {
+    books.pop();
+    generateBooksHtmlTemplate()
+    console.log(books.splice(index, 1));
+} 
+
+function clearInputs() {
+    document.getElementById('bookName').value = '';
+    document.getElementById('authorName').value = '';
+    document.getElementById('bookDescription').value = '';
+    document.getElementById('pagesNumber').value = '';
+}
+
+function generateBooksHtmlTemplate() {
     const booksDiv = books.map((book, index) => `<h1>book Number: ${index + 1}</h1>
         <p><strong>Book Name: </strong>${book.name}</p>
         <p><strong>Author Name:</strong> ${book.authorName}</p>
@@ -28,11 +45,4 @@ function showbooks() {
         <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>`
     );
     document.getElementById('books').innerHTML = booksDiv.join('');
-}
-
-function clearInputs() {
-    document.getElementById('bookName').value = '';
-    document.getElementById('authorName').value = '';
-    document.getElementById('bookDescription').value = '';
-    document.getElementById('pagesNumber').value = '';
 }
