@@ -3,7 +3,7 @@ var url = './health_article.json';
 console.log(xhr);
 xhr.open('GET', url, true);
 xhr.responseType = 'json';
-console.log(xhr.responseType);
+
 xhr.onload = function () {
     
     var articles = xhr.response.articles;
